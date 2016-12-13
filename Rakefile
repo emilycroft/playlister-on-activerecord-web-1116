@@ -10,8 +10,13 @@ namespace :db do
     migrate_db
   end
 
-  task :drop => :environment do 
+  task :drop => :environment do
     drop_db
+  end
+
+  desc 'seed the database with some dummy data'
+  task :seed => :environment do
+    require_relative './db/seeds.rb'
   end
 end
 
